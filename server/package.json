@@ -5,8 +5,11 @@
   "bin": {
     "server": "bin/server.js"
   },
+  "type": "module",
   "scripts": {
-    "dev": "nodemon ./bin/server.js"
+    "dev": "nodemon --watch./bin/server.js",
+    "test:dev": "node --watch ./test/api.test.js",
+    "test": "node --test ./test/api.test.js"
   },
   "keywords": [],
   "author": "",
