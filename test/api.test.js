@@ -1,16 +1,17 @@
-import { describe, before, after, it } from 'node:test'
-import { deepStrictEqual, ok } from 'node:assert'
-let _globalToken = ''
-let BASE_URL = 'http://localhost:3000'
+const { describe, before, after, it } = require("node:test");
+const { deepStrictEqual, strictEqual, ok } = require("node:assert");
+
+const BASE_URL = `http://localhost:15761`;
 
 describe('API Workflow', () => {
-  let _server = {}
-  before(async () => {
-    _server = (await import('../../bin/server.js')).app
-    await new Promise(resolve => _server.once('listening', resolve))
-  })
+  let _server = {};
 
-  after(done => _server.close(done))
+  before(async () => {
+    _server = require("../../bin/server.js");
+    await new Promise(resolve => _server.once("listening", resolve));
+  });
+
+  after(done => _server.close(done));
 
   it('should receive not authorized given wrong user and password', async () => {
     const data = {

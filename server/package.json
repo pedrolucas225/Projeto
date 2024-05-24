@@ -5,7 +5,6 @@
   "bin": {
     "server": "bin/server.js"
   },
-  "type": "module",
   "scripts": {
     "dev": "nodemon --watch./bin/server.js",
     "test:dev": "node --watch ./test/api.test.js",
